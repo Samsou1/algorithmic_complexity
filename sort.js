@@ -11,4 +11,3 @@ try {
 }
 
 console.log(list);
-
