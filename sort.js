@@ -1,5 +1,4 @@
 const fs = require('fs');
-
 const fileName = process.argv[2];
 
 var list;
@@ -21,7 +20,7 @@ function merge_sort(ary){
 function ms(ary){
   length = ary.length;
   if(length < 2 ){
-    return ary
+    return ary;
   }
   var middle = parseInt(length / 2);
   left_ary = ary.splice(0, middle);
