@@ -1,25 +1,34 @@
-const fs = require('fs');
+num1 = [10, 15, 3, 7];
+num2 = [1, 8, 10, 21];
+num3 = [10, 15, 3, 7, 25, 29];
 
-const fileName = process.argv[2];
+floor1 = [3, 7, 8, 3, 6, 1];
+floor2 = [1, 4, 5, 8];
+floor3 = [10, 9, 7, 8, 4, 5, 3, 1];
 
-var list;
-try {
-    const data = fs.readFileSync(fileName, 'utf8');
-    list = data.split(' ').map(element => parseFloat(element));
-} catch (error) {
-    console.error(error.message);
-}
+console.log(sum_quad([...num1], 17));
+console.log(sum_quad([...num2], 19));
+console.log(sum_quad([...num3], 32));
 
-// console.log(sum_quad([10, 15, 3, 7], 17))
-// console.log(sum_quad([1, 8, 10, 21], 19))
-// console.log(floor_quad([3, 7, 8, 3, 6, 1]))
-// console.log(floor_quad([1, 4, 5, 8]))
-// console.log(sum_linear([10, 15, 3, 7], 17));
-// console.log(sum_linear([1, 8, 10, 21], 19));
-// console.log(floor_linear([3, 7, 8, 3, 6, 1]))
-// console.log(floor_linear([1, 4, 5, 8]))
-console.log(sum_const([10, 15, 3, 7], 17));
-console.log(sum_const([1, 8, 10, 21], 19));
+console.log(floor_quad([...floor1]));
+console.log(floor_quad([...floor2]));
+console.log(floor_quad([...floor3]));
+
+console.log(sum_linear([...num1], 17));
+console.log(sum_linear([...num2], 19));
+console.log(sum_linear([...num3], 32));
+
+console.log(floor_linear([...floor1]));
+console.log(floor_linear([...floor2]));
+console.log(floor_linear([...floor3]));
+
+console.log(sum_const([...num1], 17));
+console.log(sum_const([...num2], 19));
+console.log(sum_const([...num3], 32));
+
+console.log(floor_const([...floor1]));
+console.log(floor_const([...floor2]));
+console.log(floor_const([...floor3]));
 
 
 function sum_quad(ary, int){
@@ -68,23 +77,32 @@ function sum_linear(ary, int){
 }
 
 function floor_linear(ary){
-  
+  var num = 1;
+  ary = ary.reverse();
+  var max = ary[0];
+  for(var j = 0 ; j < ary.length ; j++){
+    if(ary[j] > max){
+      num++;
+      max = ary[j];
+    }
+  }
+  return num;
 }
 
 function sum_const(ary,int){
   hash = {};
   for(var i = 0; i < ary.length; i++){
     if(hash[int - ary[i]] != undefined){
-      return true
+      return true;
     }else{
-      hash[ary[i]] = i;
+      hash[ary[i]] = 1;
     }
   }
   return false;
 }
 
 
-function flood_const(ary){
+function floor_const(ary){
   var num = 1;
   var max = ary[ary.length - 1];
   for(var i = ary.length - 1; i >= 0 ; i--){
