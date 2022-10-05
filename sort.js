@@ -14,9 +14,21 @@ let comparisonMerge;
 
 
 console.log(bubbleSort([...list]));
+console.log();
+console.log('$'.repeat(50));
+console.log();
 console.log(insertionSort([...list]));
+console.log();
+console.log('$'.repeat(50));
+console.log();
 console.log(selectionSort([...list]));
+console.log();
+console.log('$'.repeat(50));
+console.log();
 console.log(quickSort([...list]));
+console.log();
+console.log('$'.repeat(50));
+console.log();
 console.log(mergeSort([...list]));
 
 // let timeNow = Date.now();
