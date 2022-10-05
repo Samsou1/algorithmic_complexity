@@ -10,7 +10,7 @@ try {
 }
 
 let comparisonQuickSort;
-let mergeComparison;
+let comparisonMerge;
 
 
 console.log(bubbleSort([...list]));
@@ -91,7 +91,7 @@ function selectionSort(ary){
 }
 
 function quickSort(ary){
-  comparisonQuickSort = 0;
+    comparisonQuickSort = 0;
     var result = qs(ary);
     return `Quick sort: ${comparisonQuickSort} comparisons ` + result;
 }
@@ -116,9 +116,9 @@ function qs(ary){
 
 
 function mergeSort(ary){
-  mergeComparison = 0;
+  comparisonMerge = 0;
   ary = ms(ary);
-  return `Merge sort: ${mergeComparison} comparisons ` + ary;
+  return `Merge sort: ${comparisonMerge} comparisons ` + ary;
 }
 
 function ms(ary){
@@ -140,7 +140,7 @@ function merge(left, right){
     }else{
       ary.push(left.shift());
     }
-    mergeComparison++;
+    comparisonMerge++;
   }
   if(left.length > 0){
     ary = ary.concat(left);
