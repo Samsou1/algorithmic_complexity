@@ -146,7 +146,7 @@ function ms(ary){
 
 function merge(left, right){
   let ary = [];
-  while(left.length > 0 && right.length >0){
+  while(left.length > 0 && right.length > 0){
     if(left[0] >= right[0]){
       ary.push(right.shift());
     }else{

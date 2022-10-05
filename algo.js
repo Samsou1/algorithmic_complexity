@@ -32,8 +32,8 @@ console.log(floorConst([...floor3]));
 
 
 function sumQuad(ary, int){
-  for(var i = 0; i < ary.length - 1; i++){
-    for(var j = i + 1; j < ary.length; j++){
+  for(let i = 0; i < ary.length - 1; i++){
+    for(let j = i + 1; j < ary.length; j++){
       if(ary[i] + ary[j] == int){
         return true
       }
@@ -43,10 +43,10 @@ function sumQuad(ary, int){
 }
 
 function floorQuad(ary){
-  var num = 0;
-  for(var i = 0; i < ary.length; i++){
-    var taller = true;
-    for(var j = i + 1; j < ary.length; j++){
+  let num = 0;
+  for(let i = 0; i < ary.length; i++){
+    let taller = true;
+    for(let j = i + 1; j < ary.length; j++){
       if(ary[i] < ary [j]){
         taller = false;
       }
@@ -59,16 +59,16 @@ function floorQuad(ary){
 }
 
 function sumLinear(ary, int){
-  var hash = {};
-  for(var i = 0; i < ary.length; i++){
+  let hash = {};
+  for(let i = 0; i < ary.length; i++){
     if(!hash[ary[i]]){
       hash[ary[i]] = 1;
     }else{
       hash[ary[i]]++;
     }
   }
-  var keys = Object.keys(hash).map(element => parseFloat(element));
-  for(var j = 0; j < keys.length - 1; j++){
+  let keys = Object.keys(hash).map(element => parseFloat(element));
+  for(let j = 0; j < keys.length - 1; j++){
     if(hash[int - keys[j]] > 0){
       return true;
     }
@@ -77,10 +77,10 @@ function sumLinear(ary, int){
 }
 
 function floorLinear(ary){
-  var num = 1;
+  let num = 1;
   ary = ary.reverse();
-  var max = ary[0];
-  for(var j = 0 ; j < ary.length ; j++){
+  let max = ary[0];
+  for(let j = 0 ; j < ary.length ; j++){
     if(ary[j] > max){
       num++;
       max = ary[j];
@@ -91,7 +91,7 @@ function floorLinear(ary){
 
 function sumConst(ary,int){
   hash = {};
-  for(var i = 0; i < ary.length; i++){
+  for(let i = 0; i < ary.length; i++){
     if(hash[int - ary[i]] != undefined){
       return true;
     }else{
@@ -103,9 +103,9 @@ function sumConst(ary,int){
 
 
 function floorConst(ary){
-  var num = 1;
-  var max = ary[ary.length - 1];
-  for(var i = ary.length - 1; i >= 0 ; i--){
+  let num = 1;
+  let max = ary[ary.length - 1];
+  for(let i = ary.length - 1; i >= 0 ; i--){
     if(ary[i] > max){
       num++;
       max = ary[i];

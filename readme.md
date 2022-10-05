@@ -7,6 +7,7 @@ To test the merge file you can type for instance:
 ```shell
 node sort.js easyTest.txt
 ```
+Other files you can test: mediumTest.txt, hardTest.txt
 
 To test the algo file you can type:
 ```shell
