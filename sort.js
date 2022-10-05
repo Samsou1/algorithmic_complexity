@@ -57,9 +57,9 @@ console.log(mergeSort([...list]));
 // console.log("Merge Sort : (" + timeToResolveMergeSort, "ms)");
 
 function bubbleSort(ary){
-    var comparison = 0;
-    for(var i = 0; i < ary.length; i++){
-        for(var j = 0 ; j < ary.length - i - 1 ; j++){
+    let comparison = 0;
+    for(let i = 0; i < ary.length; i++){
+        for(let j = 0 ; j < ary.length - i - 1 ; j++){
             if(ary[j]>ary[j+1]){
                 [ary[j], ary[j+1]] = [ary[j+1], ary[j]];
             }
@@ -70,8 +70,8 @@ function bubbleSort(ary){
 }
 
 function insertionSort(ary){
-    var comparison = 0;
-    for(var i = 1; i < ary.length; i++){
+    let comparison = 0;
+    for(let i = 1; i < ary.length; i++){
         let currentValue = ary[i];
         let j = i - 1;
         while ((j >= 0) && (currentValue < ary[j])) {
@@ -85,10 +85,10 @@ function insertionSort(ary){
 }
 
 function selectionSort(ary){
-    var comparison = 0;
-    for(var i = 0; i < ary.length; i++){
-        var min = ary[i];
-        for(var j = i + 1; j < ary.length; j++){
+    let comparison = 0;
+    for(let i = 0; i < ary.length; i++){
+        let min = ary[i];
+        for(let j = i + 1; j < ary.length; j++){
             if(ary[j] < min){
                 min = ary[j];
             }
@@ -104,7 +104,7 @@ function selectionSort(ary){
 
 function quickSort(ary){
     comparisonQuickSort = 0;
-    var result = qs(ary);
+    let result = qs(ary);
     return `Quick sort: ${comparisonQuickSort} comparisons ` + result;
 }
 
@@ -112,9 +112,9 @@ function qs(ary){
     if(ary.length <= 1){
         return ary;
     }
-    var pivot = ary.pop();
-    var greaterThanPivot = [];
-    var smallerThanPivot = [];
+    let pivot = ary.pop();
+    let greaterThanPivot = [];
+    let smallerThanPivot = [];
     ary.map(function(element){
         if(element < pivot){
             smallerThanPivot.push(element);
@@ -138,14 +138,14 @@ function ms(ary){
   if(length < 2 ){
     return ary;
   }
-  var middle = parseInt(length / 2);
-  var leftAry = ary.splice(0, middle);
+  let middle = parseInt(length / 2);
+  let leftAry = ary.splice(0, middle);
   
   return merge(ms(leftAry), ms(ary));
 }
 
 function merge(left, right){
-  var ary = [];
+  let ary = [];
   while(left.length > 0 && right.length >0){
     if(left[0] >= right[0]){
       ary.push(right.shift());
