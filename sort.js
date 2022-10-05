@@ -72,14 +72,14 @@ function bubbleSort(ary){
 function insertionSort(ary){
     var comparison = 0;
     for(var i = 1; i < ary.length; i++){
-        let current_value = ary[i];
+        let currentValue = ary[i];
         let j = i - 1;
-        while ((j >= 0) && (current_value < ary[j])) {
+        while ((j >= 0) && (currentValue < ary[j])) {
             ary[j+1] = ary[j];
             j--;
             comparison++;
         }
-        ary[j+1] = current_value;
+        ary[j+1] = currentValue;
     }
     return `Insertion sort: ${comparison} comparisons ` + ary;
 }
@@ -113,17 +113,17 @@ function qs(ary){
         return ary;
     }
     var pivot = ary.pop();
-    var greater_than_pivot = [];
-    var smaller_than_pivot = [];
+    var greaterThanPivot = [];
+    var smallerThanPivot = [];
     ary.map(function(element){
         if(element < pivot){
-            smaller_than_pivot.push(element);
+            smallerThanPivot.push(element);
         }else{
-            greater_than_pivot.push(element);
+            greaterThanPivot.push(element);
         }
         comparisonQuickSort++;
     })
-    return (qs(smaller_than_pivot).concat([pivot], qs(greater_than_pivot)));
+    return (qs(smallerThanPivot).concat([pivot], qs(greaterThanPivot)));
 }
 
 
@@ -139,9 +139,9 @@ function ms(ary){
     return ary;
   }
   var middle = parseInt(length / 2);
-  left_ary = ary.splice(0, middle);
+  var leftAry = ary.splice(0, middle);
   
-  return merge(ms(left_ary), ms(ary));
+  return merge(ms(leftAry), ms(ary));
 }
 
 function merge(left, right){
