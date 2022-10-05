@@ -9,15 +9,42 @@ try {
     console.error(error.message);
 }
 
-console.log(bubble_sort([...list]));
-console.log(insertion_sort([...list]));
-console.log(selection_sort([...list]));
-let comparison_quick_sort;
-console.log(quick_sort([...list]));
-let merge_comparison;
-console.log(merge_sort([...list]));
+let comparisonQuickSort;
+let mergeComparison;
 
-function bubble_sort(ary){
+
+console.log(bubbleSort([...list]));
+console.log(insertionSort([...list]));
+console.log(selectionSort([...list]));
+console.log(quickSort([...list]));
+console.log(mergeSort([...list]));
+
+// let timeNow = Date.now();
+// bubbleSort([...list]);
+// let timeToResolveBubbleSort = Date.now() - timeNow;
+// console.log("Bubble Sort : (" + timeToResolveBubbleSort, "ms)");
+
+// timeNow = Date.now();
+// insertionSort([...list]);
+// let timeToResolveInsertionSort = Date.now() - timeNow;
+// console.log("Insertion Sort : (" + timeToResolveInsertionSort, "ms)");
+
+// timeNow = Date.now();
+// selectionSort([...list]);
+// let timeToResolveSelectionSort = Date.now() - timeNow;
+// console.log("Selection Sort : (" + timeToResolveSelectionSort, "ms)");
+
+// timeNow = Date.now();
+// quickSort([...list]);
+// let timeToResolveQuickSort = Date.now() - timeNow;
+// console.log("Quick Sort : (" + timeToResolveQuickSort, "ms)");
+
+// timeNow = Date.now();
+// mergeSort([...list]);
+// let timeToResolveMergeSort = Date.now() - timeNow;
+// console.log("Merge Sort : (" + timeToResolveMergeSort, "ms)");
+
+function bubbleSort(ary){
     var comparison = 0;
     for(var i = 0; i < ary.length; i++){
         for(var j = 0 ; j < ary.length - i - 1 ; j++){
@@ -30,7 +57,7 @@ function bubble_sort(ary){
     return `Bubble sort: ${comparison} comparisons ` + ary;
 }
 
-function insertion_sort(ary){
+function insertionSort(ary){
     var comparison = 0;
     for(var i = 1; i < ary.length; i++){
         let current_value = ary[i];
@@ -45,7 +72,7 @@ function insertion_sort(ary){
     return `Insertion sort: ${comparison} comparisons ` + ary;
 }
 
-function selection_sort(ary){
+function selectionSort(ary){
     var comparison = 0;
     for(var i = 0; i < ary.length; i++){
         var min = ary[i];
@@ -63,10 +90,10 @@ function selection_sort(ary){
     return `Selection sort: ${comparison} comparisons ` + ary;
 }
 
-function quick_sort(ary){
-    comparison_quick_sort = 0;
+function quickSort(ary){
+  comparisonQuickSort = 0;
     var result = qs(ary);
-    return `Quick sort: ${comparison_quick_sort} comparisons ` + result;
+    return `Quick sort: ${comparisonQuickSort} comparisons ` + result;
 }
 
 function qs(ary){
@@ -82,16 +109,16 @@ function qs(ary){
         }else{
             greater_than_pivot.push(element);
         }
-        comparison_quick_sort++;
+        comparisonQuickSort++;
     })
     return (qs(smaller_than_pivot).concat([pivot], qs(greater_than_pivot)));
 }
 
 
-function merge_sort(ary){
-  merge_comparison = 0;
+function mergeSort(ary){
+  mergeComparison = 0;
   ary = ms(ary);
-  return `Merge sort: ${merge_comparison} comparisons ` + ary;
+  return `Merge sort: ${mergeComparison} comparisons ` + ary;
 }
 
 function ms(ary){
@@ -113,7 +140,7 @@ function merge(left, right){
     }else{
       ary.push(left.shift());
     }
-    merge_comparison++;
+    mergeComparison++;
   }
   if(left.length > 0){
     ary = ary.concat(left);
